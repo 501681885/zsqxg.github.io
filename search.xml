@@ -60,79 +60,56 @@
   <entry>
     <title>spring</title>
     <url>/2020/10/13/spring/</url>
-    <content><![CDATA[<h1 id="Spring-配置说明"><a href="#Spring-配置说明" class="headerlink" title="Spring 配置说明"></a>Spring 配置说明</h1><hr>
-<h2 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h2><hr>
-<pre><code>&lt;alias name=&quot;user&quot; alias=&quot;abc&quot;/&gt;</code></pre>
+    <content><![CDATA[<h1 id="Spring-配置说明"><a href="#Spring-配置说明" class="headerlink" title="Spring 配置说明"></a>Spring 配置说明</h1><h2 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h2><pre><code>&lt;alias name=&quot;user&quot; alias=&quot;abc&quot;/&gt;</code></pre>
 <p> 2.Bean得配置<br>       id：bean的唯一标识，也就是相当于我们学的对象名<br>       class：bean对象对应得全限定名：包名+类型<br>       name：也是别名，而且name可以同时去多个</p>
 <pre><code>   &lt;bean id=&quot;userT&quot; class=&quot;com.test.pojo.UserT&quot; name=&quot;userT,userT2 userT3;userT4&quot;&gt;
              &lt;property name=&quot;name&quot; value=&quot;name别名创建&quot;/&gt;
          &lt;/bean&gt;</code></pre>
 <p> 3.import<br>   这个import，一般用于团队开发使用，它可以将多个配置文件，导入合并为一个<br>     假设显目有多人开发，不同类需要注册不同beans.xml ,最后用import将beans.xml汇入成一个 a pplicationContext.xml</p>
 <hr>
-<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><hr>
-<p>本质 set方式注入<br>     1.依赖：bean对象得创建依赖于容器<br>     2.注入： bean对象中的所有属性，由容器来注入</p>
+<a id="more"></a>
+<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>本质 set方式注入<br>     1.依赖：bean对象得创建依赖于容器<br>     2.注入： bean对象中的所有属性，由容器来注入</p>
 <p>   A.构造器注入  spring-02  beans.xml</p>
 <p>   B.set注入  spring-03-di   beans.xml</p>
 <p>   C.拓展方式注入：p命名空间，c命名空间注入<br>       xmlns:p=”<a href="http://www.springframework.org/schema/p&quot;">http://www.springframework.org/schema/p&quot;</a><br>       xmlns:c=”<a href="http://www.springframework.org/schema/c&quot;">http://www.springframework.org/schema/c&quot;</a><br>         注意点，不能直接使用，需要导入约束</p>
 <hr>
-<h2 id="Bean作用域"><a href="#Bean作用域" class="headerlink" title="Bean作用域"></a>Bean作用域</h2><hr>
-<p>1.单例模式（spring默认  scope=”singleton”）<br>   仅管理一个singleton bean的一个共享实例，并且所有对具有ID或与该bean定义相匹配的ID的bean的请求都会导致该特定的bean实例由Spring容器返回。<br>   换句话说，当您定义一个bean定义并且其作用域为单例时，Spring IoC容器将为该bean定义所定义的对象创建一个实例。该单个实例存储在此类单例bean的高速缓存中，并且对该命名bean的所有后续请求和引用都返回该高速缓存的对象<br>     a.单例模式<br>     <bean id="user2" class="com.User"  c:name="c命名空间注入" c:age="18" scope="singleton"  /></p>
+<h2 id="Bean作用域"><a href="#Bean作用域" class="headerlink" title="Bean作用域"></a>Bean作用域</h2><p>1.单例模式（spring默认  scope=”singleton”）<br>   仅管理一个singleton bean的一个共享实例，并且所有对具有ID或与该bean定义相匹配的ID的bean的请求都会导致该特定的bean实例由Spring容器返回。<br>   换句话说，当您定义一个bean定义并且其作用域为单例时，Spring IoC容器将为该bean定义所定义的对象创建一个实例。该单个实例存储在此类单例bean的高速缓存中，并且对该命名bean的所有后续请求和引用都返回该高速缓存的对象<br>     a.单例模式<br>     <bean id="user2" class="com.User"  c:name="c命名空间注入" c:age="18" scope="singleton"  /></p>
 <pre><code> b.原型模式
  &lt;bean id=&quot;user2&quot; class=&quot;com.User&quot;  c:name=&quot;c命名空间注入&quot; c:age=&quot;18&quot; scope=&quot;prototype&quot;  /&gt;
 
  c.其余的request，session，application,这些个只能在web开发中使用到</code></pre>
-<hr>
 <h2 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h2><p>1.在xml中显示得配置   2.在Java中显示配置  3.隐式得自动装配bean  4.使用注解自动装配</p>
 <h3 id="3-1："><a href="#3-1：" class="headerlink" title="3-1："></a>3-1：</h3><pre><code>ByName自动装配
     byname:会自动在容器上下文中查找，和自己对象set方法后面得值对应得beanid！
     bytype:会自动在容器上下文中查找，和自己对象属性类型相同的bean！
-
-    &lt;bean id=&quot;cat&quot; class=&quot;com.pojo.Cat&quot;/&gt;
-    &lt;bean id=&quot;dog&quot; class=&quot;com.pojo.Dog&quot;/&gt;
-    &lt;bean id=&quot;people&quot; class=&quot;com.pojo.People&quot; autowire=&quot;byName&quot;&gt;
-        &lt;property name=&quot;name&quot; value=&quot;自动装配&quot;/&gt;
-    &lt;/bean&gt;</code></pre>
+    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;bean id&#x3D;&quot;cat&quot; class&#x3D;&quot;com.pojo.Cat&quot;&#x2F;&gt;</span><br><span class="line">&lt;bean id&#x3D;&quot;dog&quot; class&#x3D;&quot;com.pojo.Dog&quot;&#x2F;&gt;</span><br><span class="line">&lt;bean id&#x3D;&quot;people&quot; class&#x3D;&quot;com.pojo.People&quot; autowire&#x3D;&quot;byName&quot;&gt;</span><br><span class="line">    &lt;property name&#x3D;&quot;name&quot; value&#x3D;&quot;自动装配&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure></code></pre>
 <h3 id="3-2："><a href="#3-2：" class="headerlink" title="3-2："></a>3-2：</h3><pre><code>ByTpye自动装配
-    &lt;bean  class=&quot;com.pojo.Cat&quot;/&gt;
-    &lt;bean  class=&quot;com.pojo.Dog&quot;/&gt;
-    &lt;bean id=&quot;people&quot; class=&quot;com.pojo.People&quot; autowire=&quot;byType&quot;&gt;
-        &lt;property name=&quot;name&quot; value=&quot;byType自动装配&quot;/&gt;
-    &lt;/bean&gt;</code></pre>
+    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;bean  class&#x3D;&quot;com.pojo.Cat&quot;&#x2F;&gt;</span><br><span class="line">&lt;bean  class&#x3D;&quot;com.pojo.Dog&quot;&#x2F;&gt;</span><br><span class="line">&lt;bean id&#x3D;&quot;people&quot; class&#x3D;&quot;com.pojo.People&quot; autowire&#x3D;&quot;byType&quot;&gt;</span><br><span class="line">    &lt;property name&#x3D;&quot;name&quot; value&#x3D;&quot;byType自动装配&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure></code></pre>
 <h3 id="4-注解自动装配"><a href="#4-注解自动装配" class="headerlink" title="4.注解自动装配"></a>4.注解自动装配</h3><pre><code> 使用须知
   1.导入约束：context约束
   2.配置注解的支持  &lt;context:annotation-config/&gt;（重要）
-  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-  &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
-      xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-      xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
-      xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
-          https://www.springframework.org/schema/beans/spring-beans.xsd
-          http://www.springframework.org/schema/context
-          https://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;
-
-      &lt;context:annotation-config/&gt;
-  &lt;/beans&gt;
-
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&quot;</span><br><span class="line">    xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">    xmlns:context&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context&quot;</span><br><span class="line">    xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans</span><br><span class="line">        https:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&#x2F;spring-beans.xsd</span><br><span class="line">        http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context</span><br><span class="line">        https:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context&#x2F;spring-context.xsd&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;context:annotation-config&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;beans&gt;</span><br></pre></td></tr></table></figure>
   @Autowired  直接属性上使用，也可以在set方法上使用  可以不要写set方法，前提是自动装配的属</code></pre>
-<h1 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h1><h2 id="代码步骤："><a href="#代码步骤：" class="headerlink" title="代码步骤："></a>代码步骤：</h2><h3 id="1-接口"><a href="#1-接口" class="headerlink" title="1.接口"></a>1.接口</h3><hr>
-<p>package com.dome01;</p>
-<p>  //住房<br>  public interface Rent {<br>      public  void  rent();<br>  }</p>
-<h3 id="2-真实角色"><a href="#2-真实角色" class="headerlink" title="2.真实角色"></a>2.真实角色</h3><p>package com.dome01;</p>
-<p>//房东<br>public class Host implements Rent{</p>
+<h1 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h1><h2 id="代码步骤："><a href="#代码步骤：" class="headerlink" title="代码步骤："></a>代码步骤：</h2><h3 id="1-接口"><a href="#1-接口" class="headerlink" title="1.接口"></a>1.接口</h3>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">package com.dome01;</span><br><span class="line"></span><br><span class="line"> &#x2F;&#x2F;住房</span><br><span class="line"> public interface Rent &#123;</span><br><span class="line">     public  void  rent();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-真实角色"><a href="#2-真实角色" class="headerlink" title="2.真实角色"></a>2.真实角色</h3><p>   package com.dome01;</p>
+<p>   //房东<br>   public class Host implements Rent{</p>
 <pre><code>public void rent() &#123;
     System.out.println(&quot;房东要出租房子&quot;);
+&#125;
 &#125;</code></pre>
-<h2 id=""><a href="#" class="headerlink" title="}"></a>}</h2><h3 id="3-代理角色"><a href="#3-代理角色" class="headerlink" title="3.代理角色"></a>3.代理角色</h3><hr>
-<p>package com.dome01;</p>
-<p>public class Poxy {<br>    private  Host host;</p>
-<pre><code>public Poxy() &#123;
-&#125;
+<h3 id="3-代理角色"><a href="#3-代理角色" class="headerlink" title="3.代理角色"></a>3.代理角色</h3><pre><code>package com.dome01;
+public class Poxy &#123;
+   private  Host host;
 
-public Poxy(Host host) &#123;
+  public Poxy() &#123;
+ &#125;
+
+ public Poxy(Host host) &#123;
     this.host = host;
-&#125;
+ &#125;
 
-public  void rent()&#123;
+ public  void rent()&#123;
     seeHouse();
     host.rent();
     hetong();
@@ -152,21 +129,23 @@ public  void  hetong()&#123;
 //收中介费
 public  void  fare()&#123;
     System.out.println(&quot;中介收费&quot;);
-&#125;</code></pre>
-<h2 id="-1"><a href="#-1" class="headerlink" title="}"></a>}</h2><h3 id="4-客户端访问代理角色"><a href="#4-客户端访问代理角色" class="headerlink" title="4.客户端访问代理角色"></a>4.客户端访问代理角色</h3><hr>
-<p>package com.dome01;</p>
-<p>public class Client {<br>    public static void main(String[] args) {<br>        //房东要出租房子<br>        Host host=new Host();</p>
-<pre><code>    //代理，中介帮房东出租房子，代理角色有一些附加操作
-    Poxy poxy=new Poxy(host);
+&#125;
 
+&#125;</code></pre>
+<h3 id="4-客户端访问代理角色"><a href="#4-客户端访问代理角色" class="headerlink" title="4.客户端访问代理角色"></a>4.客户端访问代理角色</h3><pre><code> package com.dome01;
+  public class Client &#123;
+   public static void main(String[] args) &#123;
+    //房东要出租房子
+    Host host=new Host();
+    //代理，中介帮房东出租房子，代理角色有一些附加操作
+    Poxy poxy=new Poxy(host);
     //你可以不找房东，直接找中介签约
     poxy.rent();
-&#125;</code></pre>
-<h2 id="-2"><a href="#-2" class="headerlink" title="}"></a>}</h2><h2 id="好处："><a href="#好处：" class="headerlink" title="好处："></a>好处：</h2><hr>
-<p> ·可以让角色只做自己的是，公共的部分不应关注<br> ·公共的交给代理角色，实现了业务的分工！<br> ·公共业务发生了拓展时，方便管理<br>缺点：<br> ·一个真实角色产生一个代理角色，代码量翻倍，效率变低<br>动态代理</p>
+       &#125;
+   &#125;</code></pre>
+<h2 id="好处："><a href="#好处：" class="headerlink" title="好处："></a>好处：</h2><p> ·可以让角色只做自己的是，公共的部分不应关注<br> ·公共的交给代理角色，实现了业务的分工！<br> ·公共业务发生了拓展时，方便管理<br>缺点：<br> ·一个真实角色产生一个代理角色，代码量翻倍，效率变低<br>动态代理</p>
 <p>.动态代理和静态代理角色一样<br>。动态代理的代理类时动态生成的，不是我们直接写的<br>。动态代理分为俩类：基于接口的动态代理  ，基于类的动态代理<br> 。基于接口—JDK动态代理【我们这里使用】<br> 。基于类： cglib<br> .字节码实现：javasist</p>
 <p>了解两个类：Proxy ：代理  ，InvocationHandler：调用处理程序<br>一个动态代理类代理的时一个接口，一般就是对应一类业务<br>一个动态代理类可以代理多个类，只要是实现了同一个接口！</p>
-<hr>
 ]]></content>
       <categories>
         <category>知识</category>
