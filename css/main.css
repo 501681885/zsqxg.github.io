@@ -1772,6 +1772,13 @@ pre code {
 .use-motion .collection-header {
   visibility: hidden;
 }
+.post-body p a {
+  color: #345;
+  border-buttom: none;
+}
+.post-body p a:hover {
+  color: #f00;
+}
 .posts-collapse .post-content {
   margin-bottom: 35px;
   margin-left: 35px;
@@ -2245,13 +2252,6 @@ pre code {
   to {
     transform: rotateZ(-30deg);
   }
-}
-.post-body p a {
-  color: #345;
-  border-buttom: none;
-}
-.post-body p a:hover {
-  color: #f00;
 }
 .category-all-page .category-all-title {
   text-align: center;
