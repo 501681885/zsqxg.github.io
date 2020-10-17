@@ -1,54 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>markdown的用法</title>
-    <url>/2020/10/13/markdown/</url>
-    <content><![CDATA[<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><ul>
-<li>列表一</li>
-<li>列表二<br> a 子列表1<br> b 子列表2</li>
-<li>列表三<a id="more"></a>
+    <title>Markdown的用法</title>
+    <url>/post/290ee3ee.html</url>
+    <content><![CDATA[<h1 id="markdown的用法"><a href="#markdown的用法" class="headerlink" title="markdown的用法"></a>markdown的用法</h1> <a id="more"></a>
+
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><hr>
+<p>无序列表</p>
+<ul>
+<li>条目 1</li>
+<li>条目 2<ul>
+<li>条目 2a</li>
+<li>条目 2b</li>
+</ul>
 </li>
 </ul>
-<hr>
-<p>横线</p>
-<p><a href="https://www.baidu.com/">引用百度链接</a></p>
-<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602609615100&di=27a6d612d493ef76308fffdbb2475f9f&imgtype=0&src=http://a0.att.hudong.com/18/56/14300000958002128488569856508.jpg" alt="引用图片"></p>
-<hr>
-<p><em>字体斜线</em></p>
-<p><strong>字体加粗</strong></p>
-<blockquote>
-<p>字前面加灰色</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>知识</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
-        <tag>知识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>markdown的用法</title>
-    <url>/2020/10/13/markdown%20copy/</url>
-    <content><![CDATA[<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><a id="more"></a>
-
-<ul>
-<li>列表一</li>
-<li>列表二<br> a 子列表1<br> b 子列表2</li>
-<li>列表三</li>
+<p>有序列表</p>
+<ol>
+<li>条目 1</li>
+<li>条目 2</li>
+<li>条目 3<ul>
+<li>条目 3a</li>
+<li>条目 3b</li>
 </ul>
-<hr>
-<p>横线</p>
+</li>
+</ol>
+<p>引用<br>就像邵林说的：</p>
+<blockquote>
+<p>我们活在未来 <br><br>现在只是我们的过去</p>
+</blockquote>
+<p>内敛代码:<br>我想你可以在这里<br>使用 <code>&lt;addr&gt;</code> 元素</p>
 <p><a href="https://www.baidu.com/">引用百度链接</a></p>
-<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602609615100&di=27a6d612d493ef76308fffdbb2475f9f&imgtype=0&src=http://a0.att.hudong.com/18/56/14300000958002128488569856508.jpg" alt="引用图片"></p>
+<p>引用图片<br><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602609615100&di=27a6d612d493ef76308fffdbb2475f9f&imgtype=0&src=http://a0.att.hudong.com/18/56/14300000958002128488569856508.jpg" alt="引用图片"></p>
 <hr>
 <p><em>字体斜线</em></p>
 <p><strong>字体加粗</strong></p>
 <blockquote>
 <p>字前面加灰色</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>]]></content>
+<br>
+表格<br>
+表格是我觉得 Markdown 比较累人的地方，例子如下：
+
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th align="center">Are</th>
+<th align="right">Cool</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>col 3 is</td>
+<td align="center">right-aligned</td>
+<td align="right">$1600</td>
+</tr>
+<tr>
+<td>col 2 is</td>
+<td align="center">centered</td>
+<td align="right">$12</td>
+</tr>
+<tr>
+<td>zebra stripes</td>
+<td align="center">are neat</td>
+<td align="right">$1</td>
+</tr>
+</tbody></table>
+<p><br>任务列表</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 这是已完成的项目</li>
+<li><input disabled="" type="checkbox"> 这是未完成的项目</li>
+</ul>
+]]></content>
       <categories>
         <category>知识</category>
       </categories>
@@ -58,16 +81,17 @@
       </tags>
   </entry>
   <entry>
-    <title>spring</title>
-    <url>/2020/10/13/spring/</url>
-    <content><![CDATA[<h1 id="Spring-配置说明"><a href="#Spring-配置说明" class="headerlink" title="Spring 配置说明"></a>Spring 配置说明</h1><h2 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h2><pre><code>&lt;alias name=&quot;user&quot; alias=&quot;abc&quot;/&gt;</code></pre>
+    <title>Spring说明</title>
+    <url>/post/c399f49a.html</url>
+    <content><![CDATA[<h1 id="Spring-配置说明"><a href="#Spring-配置说明" class="headerlink" title="Spring 配置说明"></a>Spring 配置说明</h1> <a id="more"></a>
+<h2 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h2><pre><code>&lt;alias name=&quot;user&quot; alias=&quot;abc&quot;/&gt;</code></pre>
 <p> 2.Bean得配置<br>       id：bean的唯一标识，也就是相当于我们学的对象名<br>       class：bean对象对应得全限定名：包名+类型<br>       name：也是别名，而且name可以同时去多个</p>
 <pre><code>   &lt;bean id=&quot;userT&quot; class=&quot;com.test.pojo.UserT&quot; name=&quot;userT,userT2 userT3;userT4&quot;&gt;
              &lt;property name=&quot;name&quot; value=&quot;name别名创建&quot;/&gt;
          &lt;/bean&gt;</code></pre>
 <p> 3.import<br>   这个import，一般用于团队开发使用，它可以将多个配置文件，导入合并为一个<br>     假设显目有多人开发，不同类需要注册不同beans.xml ,最后用import将beans.xml汇入成一个 a pplicationContext.xml</p>
 <hr>
-<a id="more"></a>
+<!-- more -->
 <h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>本质 set方式注入<br>     1.依赖：bean对象得创建依赖于容器<br>     2.注入： bean对象中的所有属性，由容器来注入</p>
 <p>   A.构造器注入  spring-02  beans.xml</p>
 <p>   B.set注入  spring-03-di   beans.xml</p>
@@ -154,6 +178,24 @@ public  void  fare()&#123;
         <tag>markdown</tag>
         <tag>知识</tag>
         <tag>spring5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>哈哈</title>
+    <url>/post/5f262806.html</url>
+    <content><![CDATA[<h1 id="螺蛳粉"><a href="#螺蛳粉" class="headerlink" title="螺蛳粉"></a>螺蛳粉</h1><a id="more"></a>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602842843700&di=a228adcb2b385ff7b65a2bf36d5de3d8&imgtype=0&src=http://pic.rmb.bdstatic.com/a749e0fda9425b98736ff8884868a778.jpeg" alt="螺蛳粉"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">广西柳州特产的“螺蛳粉”，以其鲜滑爽快的口感而闻名全国。“一大碗”螺蛳粉是广西十大名小吃，“一大碗”柳州螺蛳粉，专注汤工，专注效率，让螺蛳粉的入门经营者，得以轻松、省心地快速实现足以匹敌老牌家传名店的产品口味和顾客口碑，这是“一大碗”品牌成功的秘诀所在。“不食螺蛳粉，枉为柳州人”。柳州的螺蛳粉，位居柳州风味小吃之首，柳州盛产螺蛳，柳州人吃螺蛳已有上百年的历史了。 [1-2] </span><br><span class="line">中文名螺蛳粉主要食材米粉，卤水，汤底，酸笋分    类广西柳州，小吃米粉口    味辣、爽、鲜、风味</span><br></pre></td></tr></table></figure>
+<p><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1640806974,3236671041&fm=26&gp=0.jpg" alt="螺蛳粉"></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">简介编辑</span><br><span class="line">一大碗柳州螺蛳粉，在对螺蛳粉产品和工艺进行精密技术分析的基础上，对传统门店的经营方式进行了大刀阔斧的改良。经过“一大碗”改良的螺蛳粉工艺，让连锁加盟的入门经营者们在产品口味、顾客喜好和店面的管理经营成本之间建立起了最佳平衡，成为关注柳州螺蛳粉这一传统美食的经营者们最理想的创富平台。 [1] </span><br></pre></td></tr></table></figure>
+<h3 id="2-螺蛳粉历史"><a href="#2-螺蛳粉历史" class="headerlink" title="2 螺蛳粉历史"></a>2 螺蛳粉历史</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">螺蛳粉历史编辑</span><br><span class="line">“不食螺蛳粉，枉为柳州人”。柳州的螺蛳粉，闻名遐迩，据说在很久以前柳州人只有单一的螺蛳吃法，除了一些配菜，几乎很少还有人在加入其它的什么东西。上世纪80年代初期的一天深夜，几位外地人赶到柳州，饥肠辘辘中找到一家快要打烊的米粉摊点，可是米粉必用的骨头汤已经没有了，只剩一锅煮螺剩下的螺蛳汤，摊主情急之下，把米粉放到螺蛳汤里煮，又加上青菜以及花生等配菜，这几个外地人吃后，大呼好吃。摊主将此记在心中，逐步完善其配料和制作，遂慢慢形成了现在螺蛳粉的雏形。 [2] </span><br><span class="line">螺蛳粉最早出现于20世纪70年代末，最晚不超过20世纪80年代初，由于相关资料的严重缺失，确切的发源地已难考证，而有着浓重“螺蛳情结”和“米粉情结”的柳州人，历史的巧妙安排之中，可能也有其必然的一面吧。 [3] </span><br></pre></td></tr></table></figure>
+<h3 id="3-风味特点"><a href="#3-风味特点" class="headerlink" title="3 风味特点"></a>3 风味特点</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">风味特点编辑</span><br><span class="line">1，米粉 [2] </span><br><span class="line">“一大碗”的米粉质地柔韧，富有弹性，水煮不糊汤，干炒不易断，配以酸笋、腐竹等，爽滑入味，深受广大消费者的喜爱。生产工艺：大米—淘洗—浸泡—磨浆—蒸粉—压片—复蒸—冷却—干燥—包装—成品。 [3] </span><br><span class="line">2，卤水</span><br><span class="line">好汤出好粉。粉好吃，汤难熬。螺蛳粉的一切奥秘，都在那碗汤里。“一大碗”专注卤水汤工，卤水是螺蛳粉的精髓所在，它香而不腐，闻之开胃，想之流涎，吃之打滚。 [3] </span><br><span class="line">3，汤底</span><br><span class="line">螺蛳粉的汤底主要采用猪骨头慢火熬制而成，配上质地柔韧、富有弹性、水煮不糊汤、干炒不易断的米粉，鲜香爽口，回味无穷。 [2-3] </span><br><span class="line">优势优势</span><br><span class="line">1，值得信赖。 [3] </span><br><span class="line">西茗餐饮致力于“一大碗”螺蛳粉品牌的打造，要统一VI系统的基础上，提供定制的门店设计和高品质的门店装修形象设计，是消费者值得信赖的品牌。 [1]  [3] </span><br><span class="line">2，操作简单，出品速度快。 [3] </span><br><span class="line">“一大碗”螺蛳粉是操作简单，出品速度快，品质稳定，即使是没有过餐饮行业经验的新手也能很快掌握产品制作技术。 [2] </span><br><span class="line">3，口味正宗，回味无穷。 [3] </span><br><span class="line">“一大碗”螺蛳粉由柳州特有的软滑爽口的米粉，加上酸笋、木耳、花生、油炸腐竹、黄花菜、鲜嫩青菜等配料及浓郁适度的酸辣味和煮烂螺蛳的汤水调合而成，但又因有奇特鲜美的螺蛳汤，使你欲罢不能，吃一想二。</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>吃货</category>
+      </categories>
+      <tags>
+        <tag>吃货</tag>
+        <tag>螺蛳粉</tag>
       </tags>
   </entry>
 </search>
