@@ -426,12 +426,12 @@ if (this.viewResolvers == null) &#123;
 <p>官方文档：<a href="http://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/">http://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/</a></p>
 <p>Maven仓库地址：<a href="https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter/2.1.1">https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter/2.1.1</a></p>
 <p>整合测试</p>
-<h2 id="1、导入-MyBatis-所需要的依赖"><a href="#1、导入-MyBatis-所需要的依赖" class="headerlink" title="1、导入 MyBatis 所需要的依赖"></a>1、导入 MyBatis 所需要的依赖</h2><pre><code>&lt;dependency&gt;
+<h2 id="导入-MyBatis-所需要的依赖"><a href="#导入-MyBatis-所需要的依赖" class="headerlink" title="导入 MyBatis 所需要的依赖"></a>导入 MyBatis 所需要的依赖</h2><pre><code>&lt;dependency&gt;
 &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
 &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
 &lt;version&gt;2.1.1&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
-<h2 id="2、配置数据库连接信息（不变）"><a href="#2、配置数据库连接信息（不变）" class="headerlink" title="2、配置数据库连接信息（不变）"></a>2、配置数据库连接信息（不变）</h2><pre><code>spring:
+<h2 id="配置数据库连接信息（不变）"><a href="#配置数据库连接信息（不变）" class="headerlink" title="配置数据库连接信息（不变）"></a>配置数据库连接信息（不变）</h2><pre><code>spring:
  datasource:
 username: root
 password: 123456
@@ -461,7 +461,7 @@ filters: stat,wall,log4j
 maxPoolPreparedStatementPerConnectionSize: 20
 useGlobalDataSourceStat: true
 connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500</code></pre>
-<h2 id="3、测试数据库是否连接成功！"><a href="#3、测试数据库是否连接成功！" class="headerlink" title="3、测试数据库是否连接成功！"></a>3、测试数据库是否连接成功！</h2><h2 id="4、创建实体类，导入-Lombok！"><a href="#4、创建实体类，导入-Lombok！" class="headerlink" title="4、创建实体类，导入 Lombok！"></a>4、创建实体类，导入 Lombok！</h2><pre><code>Department.java
+<h2 id="测试数据库是否连接成功！"><a href="#测试数据库是否连接成功！" class="headerlink" title="测试数据库是否连接成功！"></a>测试数据库是否连接成功！</h2><h2 id="创建实体类，导入-Lombok！"><a href="#创建实体类，导入-Lombok！" class="headerlink" title="创建实体类，导入 Lombok！"></a>创建实体类，导入 Lombok！</h2><pre><code>Department.java
 
 package com.kuang.pojo;
 
@@ -478,7 +478,7 @@ private Integer id;
 private String departmentName;
 
 &#125;</code></pre>
-<h2 id="5、创建mapper目录以及对应的-Mapper-接口"><a href="#5、创建mapper目录以及对应的-Mapper-接口" class="headerlink" title="5、创建mapper目录以及对应的 Mapper 接口"></a>5、创建mapper目录以及对应的 Mapper 接口</h2><pre><code>DepartmentMapper.java
+<h2 id="创建mapper目录以及对应的-Mapper-接口"><a href="#创建mapper目录以及对应的-Mapper-接口" class="headerlink" title="创建mapper目录以及对应的 Mapper 接口"></a>创建mapper目录以及对应的 Mapper 接口</h2><pre><code>DepartmentMapper.java
 
 //@Mapper : 表示本类是一个 MyBatis 的 Mapper
 @Mapper
@@ -492,7 +492,7 @@ List&lt;Department&gt; getDepartments();
 Department getDepartment(Integer id);
 
 &#125;</code></pre>
-<h2 id="6、对应的Mapper映射文件"><a href="#6、对应的Mapper映射文件" class="headerlink" title="6、对应的Mapper映射文件"></a>6、对应的Mapper映射文件</h2><pre><code>DepartmentMapper.xml
+<h2 id="对应的Mapper映射文件"><a href="#对应的Mapper映射文件" class="headerlink" title="对应的Mapper映射文件"></a>对应的Mapper映射文件</h2><pre><code>DepartmentMapper.xml
 
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
 &lt;!DOCTYPE mapper
@@ -510,7 +510,7 @@ Department getDepartment(Integer id);
 &lt;/select&gt;
 
 &lt;/mapper&gt;</code></pre>
-<h2 id="7、maven配置资源过滤问题"><a href="#7、maven配置资源过滤问题" class="headerlink" title="7、maven配置资源过滤问题"></a>7、maven配置资源过滤问题</h2><pre><code>&lt;resources&gt;
+<h2 id="maven配置资源过滤问题"><a href="#maven配置资源过滤问题" class="headerlink" title="maven配置资源过滤问题"></a>maven配置资源过滤问题</h2><pre><code>&lt;resources&gt;
 &lt;resource&gt;
     &lt;directory&gt;src/main/java&lt;/directory&gt;
     &lt;includes&gt;
@@ -519,7 +519,7 @@ Department getDepartment(Integer id);
     &lt;filtering&gt;true&lt;/filtering&gt;
 &lt;/resource&gt;
 &lt;/resources&gt;</code></pre>
-<h2 id="8、编写部门的-DepartmentController-进行测试！"><a href="#8、编写部门的-DepartmentController-进行测试！" class="headerlink" title="8、编写部门的 DepartmentController 进行测试！"></a>8、编写部门的 DepartmentController 进行测试！</h2><pre><code>@RestController
+<h2 id="编写部门的-DepartmentController-进行测试！"><a href="#编写部门的-DepartmentController-进行测试！" class="headerlink" title="编写部门的 DepartmentController 进行测试！"></a>编写部门的 DepartmentController 进行测试！</h2><pre><code>@RestController
 public class DepartmentController &#123;
 
     @Autowired
@@ -539,9 +539,8 @@ public class DepartmentController &#123;
 
     &#125;</code></pre>
 <p>启动项目访问进行测试！</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>我们增加一个员工类再测试下，为之后做准备</p>
-<p>1、新建一个pojo类 Employee ；</p>
-<pre><code>@Data
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>我们增加一个员工类再测试下，为之后做准备</p>
+<h2 id="新建一个pojo类-Employee-；"><a href="#新建一个pojo类-Employee-；" class="headerlink" title="新建一个pojo类 Employee ；"></a>新建一个pojo类 Employee ；</h2><pre><code>@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Employee &#123;
@@ -557,8 +556,7 @@ private Date birth;
 private Department eDepartment; // 冗余设计
 
 &#125;</code></pre>
-<p>2、新建一个 EmployeeMapper 接口</p>
-<pre><code>//@Mapper : 表示本类是一个 MyBatis 的 Mapper
+<h2 id="新建一个-EmployeeMapper-接口"><a href="#新建一个-EmployeeMapper-接口" class="headerlink" title="新建一个 EmployeeMapper 接口"></a>新建一个 EmployeeMapper 接口</h2><pre><code>//@Mapper : 表示本类是一个 MyBatis 的 Mapper
 @Mapper
 @Repository
 public interface EmployeeMapper &#123;
@@ -576,8 +574,7 @@ Employee get(Integer id);
 int delete(Integer id);
 
 &#125;</code></pre>
-<p>3、编写 EmployeeMapper.xml 配置文件</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+<h2 id="编写-EmployeeMapper-xml-配置文件"><a href="#编写-EmployeeMapper-xml-配置文件" class="headerlink" title="编写 EmployeeMapper.xml 配置文件"></a>编写 EmployeeMapper.xml 配置文件</h2><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
     &lt;!DOCTYPE mapper
     PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
     &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
@@ -615,8 +612,7 @@ int delete(Integer id);
     delete from employee where id = #&#123;id&#125;
  &lt;/delete&gt;
 &lt;/mapper&gt;</code></pre>
-<p>4、编写EmployeeController类进行测试</p>
-<pre><code>    @RestController
+<h2 id="编写EmployeeController类进行测试"><a href="#编写EmployeeController类进行测试" class="headerlink" title="编写EmployeeController类进行测试"></a>编写EmployeeController类进行测试</h2><pre><code>    @RestController
     public class EmployeeController &#123;
 
             @Autowired
